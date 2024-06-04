@@ -28,8 +28,8 @@ public class EnemyBehauvior : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player"){
-            collision.gameObject.GetComponent<EntityStats>().hp -= es.attackDamage;
-            es.hp -= es.maxHp + 1;
+            collision.gameObject.GetComponent<EntityStats>().RemoveHp(es.attackDamage);
+            es.RemoveHp(es.maxHp);
         }
     }
 }
