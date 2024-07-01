@@ -16,6 +16,9 @@ MonoBehaviour:
   weaponSpeed: 1
   weaponLifeSpan: 0.2
   weaponRange: 5
-  weaponIcon: {fileID: 1471173258, guid: bda6a717514ef4947aed3578c3cf02a1, type: 3}
+  weaponIcon: {fileID: 2111253230, guid: c24d12482a14d4e4085246b5d8dd14db, type: 3}
   weaponName: Wood Sword
   weaponValue: 30
+  weaponProjectile: {fileID: 304630981211205327, guid: fc29152d135fccc41baf38827c1fd2c4, type: 3}
+  weaponSound: {fileID: 8300000, guid: 08755d9d8f90bb942b5896a51c340b39, type: 3}
+  weaponSoundPitch: 1

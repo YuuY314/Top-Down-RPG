@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDamage: 5
   weaponSpeed: 2
-  weaponLifeSpan: 2
+  weaponLifeSpan: 0.5
   weaponRange: 3
-  weaponIcon: {fileID: 484671113, guid: bda6a717514ef4947aed3578c3cf02a1, type: 3}
+  weaponIcon: {fileID: 1188832427, guid: c24d12482a14d4e4085246b5d8dd14db, type: 3}
   weaponName: Wood Hammer
   weaponValue: 70
+  weaponProjectile: {fileID: 304630981211205327, guid: a39f9133d7d6c3545a00b5c8cf538bd2, type: 3}
+  weaponSound: {fileID: 0}
+  weaponSoundPitch: 0

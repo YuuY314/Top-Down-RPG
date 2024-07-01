@@ -24,14 +24,21 @@ public class EntityStats : MonoBehaviour
     public float bonusAttackDamage;
     public float bonusAttackSpeed;
 
+    //Particles
+    public GameObject deathParticles;
+
+    //Audio
+    private AudioSource hitAudio;
+
     void Start()
     {
         hp = maxHp;
+        hitAudio = GameObject.Find("Hit Sound").GetComponent<AudioSource>();
     }
 
     void Update()
     {
-
+        DamageBlink();
     }
 
     public void Death()
@@ -47,6 +54,10 @@ public class EntityStats : MonoBehaviour
                 spawnManager.enemiesAlive--;
             }
 
+            hitAudio.volume = 0.5f * OptionsManager.Instance.audioSlider.value;
+
+            Instantiate(deathParticles, gameObject.transform.position, Quaternion.identity);
+
             Destroy(this.gameObject);
         }
     }
@@ -55,11 +66,18 @@ public class EntityStats : MonoBehaviour
     {
         GameObject newPopUp = Instantiate(HUDManager.Instance.damagePopUp, this.gameObject.transform.position, Quaternion.identity);
         newPopUp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-2f, 2f), 5), ForceMode2D.Impulse);
-        newPopUp.GetComponentInChildren<Text>().text = hpToRemove.ToString();
+        newPopUp.GetComponentInChildren<Text>().text = (Mathf.RoundToInt(hpToRemove * 10)).ToString();
         Destroy(newPopUp, 1);
+
+        //Change color
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+
+        hitAudio.volume = 0.2f * OptionsManager.Instance.audioSlider.value;
 
         hp -= hpToRemove;
         Death();
+
+        hitAudio.Play();
     }
 
     void AddExp(int expToAdd)
@@ -69,6 +87,13 @@ public class EntityStats : MonoBehaviour
             exp = 0;
             level++;
             HUDManager.Instance.SetupLevelUp();
+        }
+    }
+
+    void DamageBlink()
+    {
+        if(gameObject.GetComponent<SpriteRenderer>().color != Color.white){
+            gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(gameObject.GetComponent<SpriteRenderer>().color, Color.white, 10 * Time.deltaTime);
         }
     }
 }

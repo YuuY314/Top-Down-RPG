@@ -18,11 +18,14 @@ public class CameraMagnet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player"){
-            if(Camera.main.GetComponent<CameraBehaviour>().targetObject == collision.gameObject){
-                Camera.main.GetComponent<CameraBehaviour>().targetObject = magnetPosition;
-            } else {
-                Camera.main.GetComponent<CameraBehaviour>().targetObject = collision.gameObject;
-            }
+            Camera.main.GetComponent<CameraBehaviour>().targetObject = magnetPosition;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player"){
+            Camera.main.GetComponent<CameraBehaviour>().targetObject = collision.gameObject;
         }
     }
 }

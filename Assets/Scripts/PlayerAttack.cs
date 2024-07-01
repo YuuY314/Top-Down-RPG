@@ -8,6 +8,9 @@ public class PlayerAttack : MonoBehaviour
     private bool canAttack = true;
     public GameObject projectile;
     private EntityStats es;
+    public AudioClip weaponAudioClip;
+    public float audioPitch;
+    public AudioSource weaponSound;
 
     void Start()
     {
@@ -25,7 +28,13 @@ public class PlayerAttack : MonoBehaviour
             Vector2 projectileDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             projectileDirection.Normalize();
 
+            float rotationZ = Mathf.Atan2(projectileDirection.y, projectileDirection.x) * Mathf.Rad2Deg;
+            projectileInstance.transform.rotation = Quaternion.Euler(0f, 0f, rotationZ - 90);
+
             projectileInstance.GetComponent<Rigidbody2D>().AddForce(projectileDirection * es.attackRange, ForceMode2D.Impulse);
+
+            weaponSound.pitch = audioPitch;
+            weaponSound.PlayOneShot(weaponAudioClip);
 
             canAttack = false;
             cooldown = 0;   

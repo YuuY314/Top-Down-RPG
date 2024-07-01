@@ -12,7 +12,13 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        
+        Resolution[] resolutions = Screen.resolutions;
+
+        // Print the resolutions
+        foreach (var res in resolutions)
+        {
+            Debug.Log(res.width + "x" + res.height + " : " + res.refreshRateRatio);
+        }
     }
 
     void Update()

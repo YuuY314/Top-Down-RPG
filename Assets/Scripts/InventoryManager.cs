@@ -51,16 +51,19 @@ public class InventoryManager : MonoBehaviour
         foreach(Weapon w in inventory){
             GameObject slotInstance = Instantiate(invSlot, invBackground.transform);
 
+            Image[] slotIcons = slotInstance.GetComponentsInChildren<Image>();
+
             if(w == null){
-                slotInstance.GetComponentInChildren<Image>().enabled = false;
+                slotIcons[1].GetComponent<Image>().enabled = false;
             } else {
                 slotInstance.GetComponentInChildren<Image>().enabled = true;
-                slotInstance.GetComponentInChildren<Image>().sprite = w.weaponIcon;
+
+                slotIcons[1].GetComponent<Image>().sprite = w.weaponIcon;
 
                 // Indicativo de seleção de arma
-                slotInstance.GetComponentInChildren<Outline>().enabled = false;
+                slotIcons[0].GetComponent<Image>().color = Color.white;
                 if(selectedSlot == hotkey){
-                    slotInstance.GetComponentInChildren<Outline>().enabled = true;
+                    slotIcons[0].GetComponent<Image>().color = Color.yellow;
                 }
             }
 
@@ -78,6 +81,9 @@ public class InventoryManager : MonoBehaviour
         playerStats.attackSpeed = selectedWeapon.weaponSpeed;
         playerStats.attackRange = selectedWeapon.weaponRange;
         playerStats.attackLifeSpan = selectedWeapon.weaponLifeSpan;
+        playerStats.gameObject.GetComponent<PlayerAttack>().projectile = selectedWeapon.weaponProjectile;
+        playerStats.gameObject.GetComponent<PlayerAttack>().weaponAudioClip = selectedWeapon.weaponSound;
+        playerStats.gameObject.GetComponent<PlayerAttack>().audioPitch = selectedWeapon.weaponSoundPitch;
 
         selectedSlot = hotkey;
         RefreshInventory();

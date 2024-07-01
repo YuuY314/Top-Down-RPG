@@ -16,6 +16,9 @@ MonoBehaviour:
   weaponSpeed: 0.5
   weaponLifeSpan: 5
   weaponRange: 10
-  weaponIcon: {fileID: 1017977744, guid: bda6a717514ef4947aed3578c3cf02a1, type: 3}
+  weaponIcon: {fileID: -370776087, guid: c24d12482a14d4e4085246b5d8dd14db, type: 3}
   weaponName: Wood Bow
   weaponValue: 40
+  weaponProjectile: {fileID: 304630981211205327, guid: 62cbb3bd3e2055141bad51511f6a3772, type: 3}
+  weaponSound: {fileID: 8300000, guid: 08755d9d8f90bb942b5896a51c340b39, type: 3}
+  weaponSoundPitch: 0.75

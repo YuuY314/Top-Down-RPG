@@ -12,4 +12,7 @@ public class Weapon : ScriptableObject
     public Sprite weaponIcon;
     public string weaponName;
     public int weaponValue;
+    public GameObject weaponProjectile;
+    public AudioClip weaponSound;
+    public float weaponSoundPitch;
 }

@@ -35,7 +35,7 @@ public class HUDManager : MonoBehaviour
         PlayerHUD();
     }
 
-    void PlayerHUD()
+    public void PlayerHUD()
     {
         hpBar.maxValue = playerStats.maxHp;
         hpBar.value = playerStats.hp;

@@ -6,7 +6,7 @@ public class ProjectileDamage : MonoBehaviour
 {
     public float projectileDamage;
     public float projectileLifeSpan = 1;
-    public bool isPlayer;
+    public bool isEnemy;
 
     void Start()
     {
@@ -15,7 +15,7 @@ public class ProjectileDamage : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if((collision.gameObject.tag == "Enemy" && isPlayer) || (collision.gameObject.tag == "Player" && !isPlayer)){
+        if((collision.gameObject.tag == "Enemy" && isEnemy) || (collision.gameObject.tag == "Player" && !isEnemy)){
             collision.gameObject.GetComponent<EntityStats>().RemoveHp(projectileDamage);
             Destroy(this.gameObject);
         } else if(collision.gameObject.tag == "Wall"){

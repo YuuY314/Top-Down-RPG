@@ -16,6 +16,9 @@ MonoBehaviour:
   weaponSpeed: 0.2
   weaponLifeSpan: 0.5
   weaponRange: 4
-  weaponIcon: {fileID: -1791233864, guid: bda6a717514ef4947aed3578c3cf02a1, type: 3}
+  weaponIcon: {fileID: -686075257, guid: c24d12482a14d4e4085246b5d8dd14db, type: 3}
   weaponName: Wood Dagger
   weaponValue: 10
+  weaponProjectile: {fileID: 304630981211205327, guid: 72163b003dd0e264395666a5698fabf6, type: 3}
+  weaponSound: {fileID: 8300000, guid: 08755d9d8f90bb942b5896a51c340b39, type: 3}
+  weaponSoundPitch: 1.5

@@ -16,6 +16,9 @@ MonoBehaviour:
   weaponSpeed: 2
   weaponLifeSpan: 10
   weaponRange: 10
-  weaponIcon: {fileID: 1385600218, guid: bda6a717514ef4947aed3578c3cf02a1, type: 3}
+  weaponIcon: {fileID: 144585724, guid: c24d12482a14d4e4085246b5d8dd14db, type: 3}
   weaponName: Wood Staff
   weaponValue: 50
+  weaponProjectile: {fileID: 6197636854877023719, guid: a4c892834eef1aa4ca2a5ccd5ec554dc, type: 3}
+  weaponSound: {fileID: 0}
+  weaponSoundPitch: 0
